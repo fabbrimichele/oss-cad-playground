@@ -1,3 +1,5 @@
+# oss-cad-playground
+
 # SpinalHDL Base Project
 
 This repository is a base project to help Spinal users set-up project without knowledge about Scala and SBT.
