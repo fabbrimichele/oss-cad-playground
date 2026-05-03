@@ -9,19 +9,17 @@ case class Blink() extends Component {
     val led = out Bool()
   }
 
-  //val mainArea = new ClockingArea(topClockDomain) {
-    val counter = Reg(UInt(24 bits)) init 0
-    val ledStatus = Reg(Bool()) init True
+  val counter = Reg(UInt(24 bits)) init 0
+  val ledStatus = Reg(Bool()) init True
 
-    when(counter === 12_500_000) {
-      counter := 0
-      ledStatus := !ledStatus
-    } otherwise {
-      counter := counter + 1
-    }
+  when(counter === 12_500_000) {
+    counter := 0
+    ledStatus := !ledStatus
+  } otherwise {
+    counter := counter + 1
+  }
 
-    io.led := ledStatus
-  //}
+  io.led := ledStatus
 }
 
 object BlinkVerilog extends App {
