@@ -2,6 +2,10 @@ LOCATE COMP "clk" SITE "P6";
 IOBUF PORT "clk" IO_TYPE=LVCMOS33;
 FREQUENCY PORT "clk" 25 MHZ;
 
+// For other mappings, refer to:
+// - https://github.com/wuxx/icesugar-pro/blob/master/src/litex_linux/top_bg256.lpf
+// - https://github.com/litex-hub/litex-boards/blob/master/litex_boards/platforms/muselab_icesugar_pro.py
+
 // RGB LED is connected to {A11, A12, B11}
 // B11: red
 // A11: green

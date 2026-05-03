@@ -3,6 +3,10 @@ package playground
 import spinal.core._
 import spinal.core.sim._
 
+import scala.language.postfixOps
+
+//noinspection TypeAnnotation
+//noinspection ScalaWeakerAccess
 object Config {
   def spinal = SpinalConfig(
     targetDirectory = "hw/gen",
