@@ -2,7 +2,15 @@ LOCATE COMP "clk" SITE "P6";
 IOBUF PORT "clk" IO_TYPE=LVCMOS33;
 FREQUENCY PORT "clk" 25 MHZ;
 
-LOCATE COMP "io_led" SITE "A12";
-IOBUF PORT "io_led" IO_TYPE=LVCMOS25;
+LOCATE COMP "io_led[0]" SITE "B11";
+LOCATE COMP "io_led[1]" SITE "A11";
+LOCATE COMP "io_led[2]" SITE "A12";
+
+IOBUF PORT "io_led[0]" IO_TYPE=LVCMOS25;
+IOBUF PORT "io_led[1]" IO_TYPE=LVCMOS25;
+IOBUF PORT "io_led[2]" IO_TYPE=LVCMOS25;
 
 // RGB LED is connected to {A11, A12, B11}
+// B11: red
+// A11: green
+// A12: blue

@@ -7,20 +7,20 @@ import scala.language.postfixOps
 
 case class Blink() extends Component {
   val io = new Bundle {
-    val led = out Bool()
+    val led = out Bits(3 bits)
   }
 
-  val counter = Reg(UInt(24 bits)).init(0).simPublic()
-  val ledStatus = Reg(Bool()) init True
+  val clockCounter = Reg(UInt(24 bits)).init(0).simPublic()
+  val ledCounter = Reg(UInt(3 bits)) init 0
 
-  when(counter === 12_500_000) {
-    counter := 0
-    ledStatus := !ledStatus
+  when(clockCounter === 12_500_000) {
+    clockCounter := 0
+    ledCounter := ledCounter + 1
   } otherwise {
-    counter := counter + 1
+    clockCounter := clockCounter + 1
   }
 
-  io.led := ledStatus
+  io.led := ledCounter.asBits
 }
 
 object BlinkVerilog extends App {

@@ -8,8 +8,8 @@ object BlinkSim extends App {
     dut.clockDomain.forkStimulus(period = 10)
 
     for (_ <- 0 to 99) {
-      println(s"LED: ${dut.io.led.toBoolean} Count: ${dut.counter.toInt}")
-      dut.clockDomain.waitRisingEdge()
+      println(s"LED: ${dut.io.led.toInt} Count: ${dut.clockCounter.toInt}")
+      dut.clockDomain.waitRisingEdge(1_250_000)
     }
   }
 }
