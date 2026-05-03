@@ -1,4 +1,4 @@
-package projectname
+package playground
 
 import spinal.core._
 
