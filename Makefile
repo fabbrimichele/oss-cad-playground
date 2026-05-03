@@ -2,6 +2,7 @@ TARGET = blink
 TOP = Blink
 SCALA_PACKAGE = playground
 VERILOG_SOURCES = hw/gen/$(TOP).v
+WAVE_FILE = simWorkspace/Blink/test/wave.fst
 
 # ECP5 Specifics
 DEVICE  = --25k
@@ -34,5 +35,11 @@ prog: $(TARGET).bit
 prog-flash: $(TARGET).bit
 	openFPGALoader -b -f icesugar_pro $<
 
+view-wave: simWorkspace/Blink/test/wave.fst
+	@if [ -f $(WAVE_FILE) ]; then \
+		gtkwave $(WAVE_FILE) & \
+	else \
+		echo "Error: Waveform file not found. Run simulation first."; \
+	fi
 clean:
 	rm -f *.json *.config *.bit hw/gen/*.v

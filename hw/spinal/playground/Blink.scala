@@ -1,6 +1,7 @@
 package playground
 
 import spinal.core._
+import spinal.core.sim.SimDataPimper
 
 import scala.language.postfixOps
 
@@ -9,7 +10,7 @@ case class Blink() extends Component {
     val led = out Bool()
   }
 
-  val counter = Reg(UInt(24 bits)) init 0
+  val counter = Reg(UInt(24 bits)).init(0).simPublic()
   val ledStatus = Reg(Bool()) init True
 
   when(counter === 12_500_000) {
