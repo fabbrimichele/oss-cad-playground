@@ -5,6 +5,8 @@ import spinal.core.sim.SimDataPimper
 
 import scala.language.postfixOps
 
+//noinspection TypeAnnotation
+//noinspection ScalaWeakerAccess
 case class Blink() extends Component {
   val io = new Bundle {
     val led = out Bits(3 bits)
