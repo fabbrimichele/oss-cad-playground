@@ -29,11 +29,12 @@ $(TARGET).bit: $(TARGET).config
 
 # 5. Load to FPGA
 prog: $(TARGET).bit
-	openFPGALoader -b icesugar_pro $<
+	# openFPGALoader -b icesugar_pro $<
+	openFPGALoader -c cmsisdap --vid=0x1d50 --pid=0x602b $<
 
 # 5. Load to FLASH (permanent)
 prog-flash: $(TARGET).bit
-	openFPGALoader -b -f icesugar_pro $<
+	openFPGALoader -f -c cmsisdap --vid=0x1d50 --pid=0x602b $<
 
 view-wave: simWorkspace/Blink/test/wave.fst
 	@if [ -f $(WAVE_FILE) ]; then \
